@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+
+before_install:
+  - docker build -t aesdrigar/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run aesdrigar/docker-react npm rust test -- --coverage
